@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site de Streaming - Login</title>
+</head>
+<body>
+  <h1>Meu Site de Streaming</h1>
+  
+  <div id="login-form">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="login()">Entrar</button>
+  </div>
+  
+  <script>
+    function login() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      
+      // Verifique se o nome de usuário e a senha correspondem aos valores desejados
+      if (username === 'rafael' && password === 'rafael123') {
+        alert('Login bem-sucedido! Redirecionando para a página principal...');
+        // Redirecione o usuário para outra página após o login bem-sucedido
+        window.location.href = 'http://fREq7KQITv46V7a:FMo0neszugEoFfI@localhost:53423/storage/emulated/0/html5.html'; // Substitua 'http://fREq7KQITv46V7a:FMo0neszugEoFfI@localhost:53423/storage/emulated/0/html5.html' pelo nome da sua página
+      } else {
+        alert('Nome de usuário ou senha incorretos. Por favor, tente novamente.');
+      }
+    }
+  </script>
+</body>
+</html>
