@@ -1,34 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site de Streaming - Login</title>
+  <title>Filmes e Séries</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Meu Site de Streaming</h1>
-  
-  <div id="login-form">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Usuário">
-    <input type="password" id="password" placeholder="Senha">
-    <button onclick="login()">Entrar</button>
-  </div>
-  
+  <header>
+    <h1>Filmes e Séries</h1>
+    <nav>
+      <ul>
+        <li><a href="#destaques">Em Destaque</a></li>
+        <li><a href="#series">Séries Populares</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="destaques">
+    <h2>Filmes em Destaque</h2>
+    <!-- Os filmes serão carregados aqui pelo JavaScript -->
+  </section>
+
+  <section id="series">
+    <h2>Séries Populares</h2>
+    <!-- As séries serão carregadas aqui pelo JavaScript -->
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Entre em contato para mais informações sobre filmes e séries.</p>
+    <form id="contact-form">
+      <label for="name">Nome:</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Mensagem:</label>
+      <textarea id="message" name="message" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Filmes e Séries</p>
+  </footer>
+
   <script>
-    function login() {
-      var username = document.getElementById('username').value;
-      var password = document.getElementById('password').value;
-      
-      // Verifique se o nome de usuário e a senha correspondem aos valores desejados
-      if (username === 'rafael' && password === 'rafael123') {
-        alert('Login bem-sucedido! Redirecionando para a página principal...');
-        // Redirecione o usuário para outra página após o login bem-sucedido
-        window.location.href = 'http://fREq7KQITv46V7a:FMo0neszugEoFfI@localhost:53423/storage/emulated/0/html5.html'; // Substitua 'http://fREq7KQITv46V7a:FMo0neszugEoFfI@localhost:53423/storage/emulated/0/html5.html' pelo nome da sua página
-      } else {
-        alert('Nome de usuário ou senha incorretos. Por favor, tente novamente.');
+    document.addEventListener('DOMContentLoaded', function () {
+      const filmesUrls = [
+        "https://www.youtube.com/embed/duwrYMWKDaI",
+        "https://www.youtube.com/embed/7G85kUxWsVY",
+        "https://www.youtube.com/embed/tsQTacwGwEg",
+        "https://www.youtube.com/embed/Si7-8MEg6N4",
+        "https://www.youtube.com/embed/ndmUTSb-DG8",
+        // Adicionando novos links
+        "https://www.youtube.com/embed/UJ55LQu2htU",
+        "https://www.youtube.com/embed/mlZ182jKfcY",
+        "https://www.youtube.com/embed/n0eTmBeu9vA",
+        "https://www.youtube.com/embed/SOP5v53DD74"
+      ];
+
+      function criarIframe(url) {
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('width', '560');
+        iframe.setAttribute('height', '315');
+        iframe.setAttribute('src', url);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+        iframe.setAttribute('allowfullscreen', true);
+        return iframe;
       }
-    }
+
+      function carregarFilmes() {
+        const secaoDestaques = document.getElementById('destaques');
+        filmesUrls.forEach(url => {
+          const iframe = criarIframe(url);
+          secaoDestaques.appendChild(iframe);
+        });
+      }
+
+      carregarFilmes();
+    });
   </script>
 </body>
 </html>
